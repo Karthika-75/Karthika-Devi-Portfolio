@@ -1,0 +1,1039 @@
+/* =========================================================
+   ADVANCED CSS3 & RESPONSIVE PORTFOLIO
+   Karthika Devi P.
+   ========================================================= */
+
+/* =========================================================
+   1. CSS VARIABLES
+   ========================================================= */
+
+:root {
+    --bg-color: #f5f7fb;
+    --surface-color: #ffffff;
+    --surface-hover: #f0f4ff;
+
+    --primary-color: #4f46e5;
+    --primary-dark: #3730a3;
+    --secondary-color: #7c3aed;
+
+    --text-color: #1f2937;
+    --muted-text: #6b7280;
+
+    --border-color: #e5e7eb;
+
+    --header-gradient: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    --shadow-small: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+    --radius-small: 8px;
+    --radius-medium: 14px;
+    --radius-large: 22px;
+
+    --max-width: 1200px;
+
+    --transition: 0.3s ease;
+}
+
+
+/* =========================================================
+   2. DARK MODE VARIABLES
+   ========================================================= */
+
+body.dark-mode {
+    --bg-color: #111827;
+    --surface-color: #1f2937;
+    --surface-hover: #374151;
+
+    --text-color: #f9fafb;
+    --muted-text: #d1d5db;
+
+    --border-color: #374151;
+
+    --primary-color: #818cf8;
+    --primary-dark: #a5b4fc;
+    --secondary-color: #a78bfa;
+
+    --header-gradient: linear-gradient(
+        135deg,
+        #312e81,
+        #581c87
+    );
+
+    --shadow-small: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================================================
+   3. GLOBAL RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    background: var(--bg-color);
+    color: var(--text-color);
+
+    line-height: 1.7;
+
+    min-height: 100vh;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+}
+
+
+/* =========================================================
+   4. TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.3;
+}
+
+
+h1 {
+    font-size: 2rem;
+}
+
+
+h2 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+
+    margin-bottom: 1.2rem;
+}
+
+
+h3 {
+    font-size: 1.25rem;
+
+    color: var(--primary-color);
+
+    margin-bottom: 0.8rem;
+}
+
+
+h4 {
+    font-size: 1rem;
+
+    color: var(--secondary-color);
+
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+
+p {
+    margin-bottom: 1rem;
+}
+
+
+/* =========================================================
+   5. LINKS
+   ========================================================= */
+
+a {
+    color: var(--primary-color);
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        transform var(--transition);
+}
+
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   6. SKIP LINK
+   ========================================================= */
+
+body > a:first-child {
+    position: absolute;
+
+    top: -100px;
+    left: 1rem;
+
+    z-index: 1000;
+
+    background: var(--primary-color);
+    color: white;
+
+    padding: 0.7rem 1rem;
+
+    border-radius: var(--radius-small);
+
+    transition: top var(--transition);
+}
+
+
+body > a:first-child:focus {
+    top: 1rem;
+}
+
+
+/* =========================================================
+   7. HEADER
+   ========================================================= */
+
+header {
+    background: var(--header-gradient);
+
+    color: white;
+
+    padding: 2rem 1rem;
+
+    text-align: center;
+
+    box-shadow: var(--shadow-medium);
+}
+
+
+header h1 {
+    color: white;
+
+    margin-bottom: 0.4rem;
+
+    font-weight: 700;
+}
+
+
+header p {
+    color: rgba(255, 255, 255, 0.9);
+
+    margin-bottom: 1.5rem;
+}
+
+
+/* =========================================================
+   8. NAVIGATION - FLEXBOX
+   ========================================================= */
+
+nav ul {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    justify-content: center;
+
+    gap: 0.6rem;
+
+    list-style: none;
+}
+
+
+nav li {
+    display: flex;
+}
+
+
+nav a {
+    display: block;
+
+    width: 100%;
+
+    padding: 0.7rem 1rem;
+
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: var(--radius-small);
+
+    transition:
+        background-color var(--transition),
+        transform var(--transition);
+}
+
+
+nav a:hover,
+nav a[aria-current="page"] {
+    background: rgba(255, 255, 255, 0.18);
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   9. MAIN CONTAINER
+   ========================================================= */
+
+main {
+    width: min(100% - 2rem, var(--max-width));
+
+    margin: 0 auto;
+
+    padding: 2rem 0;
+}
+
+
+/* =========================================================
+   10. MAIN PAGE GRID
+   ========================================================= */
+
+main {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+}
+
+
+/* =========================================================
+   11. SECTIONS
+   ========================================================= */
+
+main > section {
+    background: var(--surface-color);
+
+    padding: 1.5rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-large);
+
+    box-shadow: var(--shadow-small);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition);
+}
+
+
+main > section:hover {
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow-medium);
+}
+
+
+/* =========================================================
+   12. SECTION HEADINGS
+   ========================================================= */
+
+main > section > h2 {
+    position: relative;
+
+    padding-bottom: 0.6rem;
+}
+
+
+main > section > h2::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 55px;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary-color),
+            var(--secondary-color)
+        );
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   13. ARTICLES / CARDS
+   ========================================================= */
+
+article {
+    background: var(--surface-hover);
+
+    border: 1px solid var(--border-color);
+
+    border-left: 5px solid var(--primary-color);
+
+    border-radius: var(--radius-medium);
+
+    padding: 1.25rem;
+
+    margin-top: 1rem;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition);
+}
+
+
+article:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow-small);
+}
+
+
+/* =========================================================
+   14. LISTS
+   ========================================================= */
+
+main ul {
+    padding-left: 1.3rem;
+}
+
+
+main li {
+    margin-bottom: 0.5rem;
+}
+
+
+main section ul:not(nav ul) {
+    margin-top: 0.8rem;
+}
+
+
+main section ul:not(nav ul) li::marker {
+    color: var(--primary-color);
+}
+
+
+/* =========================================================
+   15. SKILLS SECTION
+   ========================================================= */
+
+/*
+   The third main section on about.html is Technical Skills.
+   Flexbox makes the skill list responsive.
+*/
+
+main > section:nth-child(3) ul {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.7rem;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+
+main > section:nth-child(3) li {
+    background: var(--primary-color);
+
+    color: white;
+
+    padding: 0.5rem 0.9rem;
+
+    border-radius: 50px;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    margin: 0;
+
+    transition:
+        transform var(--transition),
+        background-color var(--transition);
+}
+
+
+main > section:nth-child(3) li:hover {
+    background: var(--secondary-color);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   16. PROFILE DETAILS
+   ========================================================= */
+
+dl {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 0.7rem;
+}
+
+
+dt {
+    font-weight: 700;
+
+    color: var(--primary-color);
+}
+
+
+dd {
+    margin-bottom: 0.5rem;
+}
+
+
+/* =========================================================
+   17. ADDRESS
+   ========================================================= */
+
+address {
+    font-style: normal;
+
+    background: var(--surface-hover);
+
+    padding: 1rem;
+
+    border-radius: var(--radius-medium);
+
+    border: 1px solid var(--border-color);
+}
+
+
+address a {
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   18. CONTACT FORM
+   ========================================================= */
+
+form {
+    width: 100%;
+}
+
+
+fieldset {
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-medium);
+
+    padding: 1rem;
+}
+
+
+legend {
+    padding: 0 0.5rem;
+
+    font-weight: 700;
+
+    color: var(--primary-color);
+}
+
+
+form p {
+    margin-bottom: 1.2rem;
+}
+
+
+label {
+    display: inline-block;
+
+    margin-bottom: 0.4rem;
+
+    font-weight: 600;
+}
+
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 0.8rem 0.9rem;
+
+    font: inherit;
+
+    color: var(--text-color);
+
+    background: var(--surface-color);
+
+    border: 2px solid var(--border-color);
+
+    border-radius: var(--radius-small);
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition);
+}
+
+
+input:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(79, 70, 229, 0.12);
+
+    outline: none;
+}
+
+
+textarea {
+    min-height: 150px;
+
+    resize: vertical;
+}
+
+
+/* =========================================================
+   19. FORM VALIDATION
+   ========================================================= */
+
+input:valid,
+textarea:valid {
+    border-color: #22c55e;
+}
+
+
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+    border-color: #ef4444;
+}
+
+
+/* =========================================================
+   20. BUTTON
+   ========================================================= */
+
+button {
+    width: 100%;
+
+    border: none;
+
+    padding: 0.85rem 1.3rem;
+
+    border-radius: var(--radius-small);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-color),
+            var(--secondary-color)
+        );
+
+    color: white;
+
+    font: inherit;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        opacity var(--transition);
+}
+
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-small);
+}
+
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   21. PROJECT PAGE - CSS GRID
+   ========================================================= */
+
+/*
+   project.html contains:
+   1. Projects section
+   2. Internship section
+
+   The articles inside the Projects section become
+   a responsive CSS Grid.
+*/
+
+main > section:first-child {
+    container-type: inline-size;
+}
+
+
+main > section:first-child > article {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+main > section:first-child > article ul {
+    flex-grow: 1;
+}
+
+
+/* =========================================================
+   22. EXPLORE LINKS
+   ========================================================= */
+
+main section a[href$=".html"] {
+    display: inline-block;
+
+    padding: 0.55rem 0.9rem;
+
+    margin: 0.25rem;
+
+    background: var(--surface-hover);
+
+    border-radius: var(--radius-small);
+
+    border: 1px solid var(--border-color);
+
+    transition:
+        transform var(--transition),
+        background-color var(--transition);
+}
+
+
+main section a[href$=".html"]:hover {
+    background: var(--primary-color);
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   23. FOOTER
+   ========================================================= */
+
+footer {
+    margin-top: 2rem;
+
+    padding: 1.8rem 1rem;
+
+    text-align: center;
+
+    background: #111827;
+
+    color: #e5e7eb;
+}
+
+
+footer p {
+    margin-bottom: 0.4rem;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   24. TABLET - 768px
+   ========================================================= */
+
+@media (min-width: 768px) {
+
+    header {
+        padding: 2.5rem 2rem;
+    }
+
+
+    nav ul {
+        flex-direction: row;
+
+        align-items: center;
+
+        gap: 0.8rem;
+    }
+
+
+    nav li {
+        display: block;
+    }
+
+
+    nav a {
+        width: auto;
+
+        padding: 0.6rem 1.2rem;
+    }
+
+
+    main {
+        width: min(100% - 3rem, var(--max-width));
+
+        padding: 3rem 0;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 1.5rem;
+    }
+
+
+    /*
+       Each large section gets normal space,
+       while the first sections can occupy
+       different grid areas.
+    */
+
+    main > section {
+        padding: 1.8rem;
+    }
+
+
+    dl {
+        grid-template-columns: 150px 1fr;
+
+        align-items: center;
+    }
+
+
+    button {
+        width: auto;
+
+        min-width: 150px;
+    }
+}
+
+
+/* =========================================================
+   25. PROJECT GRID - TABLET
+   ========================================================= */
+
+@media (min-width: 768px) {
+
+    main > section:first-child {
+        grid-column: 1 / -1;
+    }
+
+
+    main > section:first-child > article {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 1rem;
+    }
+
+
+    main > section:first-child > article h3 {
+        grid-column: 1 / -1;
+    }
+
+
+    main > section:first-child > article > p {
+        grid-column: 1 / -1;
+    }
+
+
+    main > section:first-child > article h4 {
+        margin-top: 0;
+    }
+}
+
+
+/* =========================================================
+   26. DESKTOP - 1024px
+   ========================================================= */
+
+@media (min-width: 1024px) {
+
+    header {
+        padding: 3rem 2rem;
+    }
+
+
+    header h1 {
+        font-size: 2.6rem;
+    }
+
+
+    header p {
+        font-size: 1.1rem;
+    }
+
+
+    main {
+        width: min(100% - 4rem, var(--max-width));
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 2rem;
+
+        padding: 4rem 0;
+    }
+
+
+    main > section {
+        padding: 2rem;
+    }
+
+
+    /*
+       Project cards use a 3-column layout.
+    */
+
+    main > section:first-child > article {
+        grid-template-columns: repeat(3, 1fr);
+
+        align-items: start;
+    }
+
+
+    main > section:first-child > article h3,
+    main > section:first-child > article > p {
+        grid-column: 1 / -1;
+    }
+
+
+    footer {
+        padding: 2.5rem;
+    }
+}
+
+
+/* =========================================================
+   27. LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+    main {
+        gap: 2.5rem;
+    }
+
+
+    main > section {
+        padding: 2.2rem;
+    }
+
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+
+    h3 {
+        font-size: 1.35rem;
+    }
+}
+
+
+/* =========================================================
+   28. REDUCED MOTION ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+    }
+}
+
+
+/* =========================================================
+   29. PRINT STYLES
+   ========================================================= */
+
+@media print {
+
+    header {
+        background: none;
+
+        color: black;
+
+        box-shadow: none;
+    }
+
+
+    header h1 {
+        color: black;
+    }
+
+
+    nav,
+    button,
+    body > a:first-child {
+        display: none;
+    }
+
+
+    main {
+        display: block;
+
+        width: 100%;
+    }
+
+
+    main > section {
+        box-shadow: none;
+
+        border: 1px solid #ccc;
+
+        margin-bottom: 1rem;
+    }
+
+
+    footer {
+        background: none;
+
+        color: rgb(216, 138, 252);
+    }
+}
